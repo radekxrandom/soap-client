@@ -1,5 +1,5 @@
 {
-  "name": "@radekxrandom/soap-client",
+  "name": "@radekborandom/soap-client",
   "version": "1.0.0",
   "description": "Basic soap messaging protocol for node.js",
   "main": "index.js",
