@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TestWs1" targetNamespace="http://tempuri.org/">
+  <wsp:Policy wsu:Id="custom_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://test.pl/wsdl/xsd0.xsd" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://test.pl/wsdl/xsd1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://test.pl/wsdl/xsd2.xsd" namespace="http://schemas.datacontract.org/2004/07/TerytUslugaWs1" />
+      <xsd:import schemaLocation="https://test.pl/wsdl/xsd3.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITestNamespace_CzyZalogowany_InputMessage">
+    <wsdl:part name="parameters" element="tns:CzyZalogowany" />
+  </wsdl:message>
+  <wsdl:message name="ITestNamespace_CzyZalogowany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CzyZalogowanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestNamespace_MultipleFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:MultipleFields" />
+  </wsdl:message>
+  <wsdl:message name="ITestNamespace_MultipleFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MultipleFieldsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITestNamespace">
+    <wsdl:operation name="CzyZalogowany">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestNamespace/CzyZalogowany" message="tns:ITestNamespace_CzyZalogowany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestNamespace/CzyZalogowanyResponse" message="tns:ITestNamespace_CzyZalogowany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MultipleFields">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestNamespace/MultipleFields" message="tns:ITestNamespace_MultipleFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestNamespace/MultipleFieldsResponse" message="tns:ITestNamespace_MultipleFields_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="custom" type="tns:ITestNamespace">
+    <wsp:PolicyReference URI="#custom_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CzyZalogowany">
+      <soap:operation soapAction="http://tempuri.org/ITestNamespace/CzyZalogowany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MultipleFields">
+      <soap:operation soapAction="http://tempuri.org/ITestNamespace/MultipleFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestWs1">
+    <wsdl:port name="custom" binding="tns:custom">
+      <soap:address location="https://test.pl/TestWs1.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://test.pl/TestWs1.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

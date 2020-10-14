@@ -1,0 +1,66 @@
+?xml version="1.0" encoding="utf-8"?>
+<TERC>
+  <row>
+    <WOJ>02</WOJ>
+    <POW></POW>
+    <GMI></GMI>
+    <RODZ></RODZ>
+    <NAZWA>dolnośląskie</NAZWA>
+    <NAZWA_DOD>wojewodztwo</NAZWA_DOD>
+    <STAN_NA>2020-01-01</STAN_NA>
+  </row>
+  <row>
+    <WOJ>02</WOJ>
+    <POW>01</POW>
+    <GMI></GMI>
+    <RODZ></RODZ>
+    <NAZWA>bolesławiecki</NAZWA>
+    <NAZWA_DOD>powiat</NAZWA_DOD>
+    <STAN_NA>2020-01-01</STAN_NA>
+  </row>
+  <row>
+    <WOJ>02</WOJ>
+    <POW>01</POW>
+    <GMI>01</GMI>
+    <RODZ>1</RODZ>
+    <NAZWA>Bolesławiec</NAZWA>
+    <NAZWA_DOD>gmina miejska</NAZWA_DOD>
+    <STAN_NA>2020-01-01</STAN_NA>
+  </row>
+  <row>
+    <WOJ>02</WOJ>
+    <POW>01</POW>
+    <GMI>02</GMI>
+    <RODZ>2</RODZ>
+    <NAZWA>Bolesławiec</NAZWA>
+    <NAZWA_DOD>gmina wiejska</NAZWA_DOD>
+    <STAN_NA>2020-01-01</STAN_NA>
+  </row>
+  <row>
+    <WOJ>02</WOJ>
+    <POW>02</POW>
+    <GMI></GMI>
+    <RODZ></RODZ>
+    <NAZWA>dzierżoniowski</NAZWA>
+    <NAZWA_DOD>powiat</NAZWA_DOD>
+    <STAN_NA>2020-01-01</STAN_NA>
+  </row>
+  <row>
+    <WOJ>02</WOJ>
+    <POW>02</POW>
+    <GMI>01</GMI>
+    <RODZ>1</RODZ>
+    <NAZWA>Bielawa</NAZWA>
+    <NAZWA_DOD>gmina miejska</NAZWA_DOD>
+    <STAN_NA>2020-01-01</STAN_NA>
+  </row>
+  <row>
+    <WOJ>02</WOJ>
+    <POW>02</POW>
+    <GMI>02</GMI>
+    <RODZ>1</RODZ>
+    <NAZWA>Dzierżoniów</NAZWA>
+    <NAZWA_DOD>gmina miejska</NAZWA_DOD>
+    <STAN_NA>2020-01-01</STAN_NA>
+  </row>
+</TERC>

@@ -1,0 +1,36 @@
+{
+  "name": "@radekxrandom/node-soap-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "dependencies": {
+    "@ava/babel": "^1.0.1",
+    "adm-zip": "^0.4.16",
+    "async": "^3.2.0",
+    "ava": "^3.13.0",
+    "axios": "^0.20.0",
+    "axios-mock-adapter": "^1.18.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.4",
+    "proxyquire": "^2.1.3",
+    "sinon": "^9.2.0",
+    "testdouble": "^3.16.1",
+    "xml2js": "^0.4.23"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radekxrandom/node-soap-client.git"
+  },
+  "author": "radekxrandom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radekxrandom/node-soap-client/issues"
+  },
+  "homepage": "https://github.com/radekxrandom/node-soap-client#readme"
+}
