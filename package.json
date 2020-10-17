@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/radekxrandom/node-soap-client.git"
+    "url": "git+https://github.com/radekxrandom/soap-client.git"
   },
   "author": "radekxrandom",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/radekxrandom/node-soap-client/issues"
+    "url": "https://github.com/radekxrandom/soap-client/issues"
   },
-  "homepage": "https://github.com/radekxrandom/node-soap-client#readme"
+  "homepage": "https://github.com/radekxrandom/soap-client#readme"
 }
