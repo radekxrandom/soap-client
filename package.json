@@ -1,6 +1,6 @@
 {
   "name": "@radekborandom/soap-client",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Basic soap messaging protocol for node.js",
   "main": "index.js",
   "scripts": {
