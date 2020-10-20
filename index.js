@@ -1,4 +1,4 @@
-const SoapRequestHelper = require(".src//soap_request_helper");
+const SoapRequestHelper = require("./src/soap_request_helper");
 
 class SoapClientsFactory {
   static async generateClient(wsdlUrl) {
