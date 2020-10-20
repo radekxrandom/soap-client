@@ -1,5 +1,5 @@
 const test = require("ava");
-const SoapRequestHelper = require("../soap_request_helper");
+const SoapRequestHelper = require("../src/soap_request_helper.js");
 const axios = require("axios");
 const xml2js = require("xml2js");
 const parser = new xml2js.Parser({ trim: true });
