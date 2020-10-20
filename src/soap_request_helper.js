@@ -49,15 +49,10 @@ class SoapRequestHelper {
     const reqBodyXml = builder.buildObject(reqBodyObj);
     try {
       const responseMsg = await this._sendRequest(reqBodyXml, method.action);
-      const responseData = await this._parseResponse(
-        responseMsg.data,
-        method.name
-      );
+      const responseData = await this._parseResponse(responseMsg.data, method.name);
       return responseData;
     } catch (err) {
-      console.error(
-        "Error occured while sending a request or while parsing the response"
-      );
+      console.error("Error occured while sending a request or while parsing the response");
       console.debug(err);
     }
   }
@@ -84,7 +79,7 @@ class SoapRequestHelper {
     try {
       const res = await axios.get(wsdlUrl);
       const wsdlFile = res.data;
-      const parser = new xml2js.Parser({ normalize: true });
+      const parser = new xml2js.Parser({normalize: true});
       const wsdlObject = await xml2js.parseStringPromise(wsdlFile);
       const key = Object.keys(wsdlObject)[0];
       this.ns = key.slice(0, key.indexOf("definitions"));
@@ -94,17 +89,11 @@ class SoapRequestHelper {
     }
   }
   _getServiceEndpoint(wsdl) {
-    const serviceEndpoint =
-      wsdl[`${this.ns}definitions`][`${this.ns}service`][0][
-        `${this.ns}port`
-      ][0]["soap:address"][0][`$`][`location`];
+    const serviceEndpoint = wsdl[`${this.ns}definitions`][`${this.ns}service`][0][`${this.ns}port`][0]["soap:address"][0][`$`][`location`];
     this.endpoint = serviceEndpoint;
   }
   _getMethodNames(wsdl) {
-    const wsdlOperations =
-      wsdl[`${this.ns}definitions`][`${this.ns}binding`][0][
-        `${this.ns}operation`
-      ];
+    const wsdlOperations = wsdl[`${this.ns}definitions`][`${this.ns}binding`][0][`${this.ns}operation`];
     this.methodsMeta = wsdlOperations.map(el => {
       const name = el["$"]["name"];
       const action = el["soap:operation"][0]["$"]["soapAction"];
@@ -122,13 +111,14 @@ class SoapRequestHelper {
     const responseString = await xml2js.parseStringPromise(response);
     const responseBody = responseString["s:Envelope"]["s:Body"][0];
 
-    const retrievedResult =
-      responseBody[`${methodName}Response`][0][`${methodName}Result`][0];
+    const retrievedResult = responseBody[`${methodName}Response`][0][`${methodName}Result`][0];
     let resultTemp = {};
     for (let key in retrievedResult) {
       resultTemp[key] = retrievedResult[key][0];
     }
-    const result = retrievedResult.length > 1 ? retrievedResult : resultTemp;
+    const result = retrievedResult.length > 1
+      ? retrievedResult
+      : resultTemp;
     return result;
   }
 }
