@@ -12,13 +12,13 @@
 - #### Install with [yarn](https://classic.yarnpkg.com/en/package/@radekborandom/soap-client)
 
 ```sh
-   $ yarn add soap
+   $ yarn add @radekborandom/soap-client
 ```
 
 - #### Install with [npm](https://www.npmjs.com/package/@radekborandom/soap-client)
 
 ```sh
-   $ npm i soap
+   $ npm i @radekborandom/soap-client
 ```
 
 ### Client initialization
