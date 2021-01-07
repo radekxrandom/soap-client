@@ -132,9 +132,9 @@ class SoapRequestHelper {
       responseBody[`${methodName}Response`][0][`${methodName}Result`][0];
     let resultTemp = {};
 
-    for (let key in retrievedResult) {
-      resultTemp[key] = retrievedResult[key][0];
-    }
+    Object.entries(retrievedResult).map(([key, value]) => {
+      [resultTemp[key]] = value;
+    });
     const result = retrievedResult.length > 1 ? retrievedResult : resultTemp;
     console.log(result);
     return result;

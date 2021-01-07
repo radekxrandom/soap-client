@@ -54,18 +54,6 @@ class SoapXmlHelper {
       }
     };
   }
-  _createRequestBody(methodName, args) {
-    let argsObj = {};
-    for (let key in args) {
-      argsObj[`rns:${key}`] = {
-        _: args[key]
-      };
-    }
-    const reqBody = {
-      [`rns:${methodName}`]: argsObj
-    };
-    return reqBody;
-  }
   createSoapRequest(method, args) {
     const token = this.token || "";
     const reqBody = this._createRequestBody(method.name, args);
@@ -89,6 +77,22 @@ class SoapXmlHelper {
     };
     return request;
   }
+	_createRequestBody(methodName, args) {
+		/*	const argsObj = {};
+	 for (const key in args) {
+			argsObj[`rns:${key}`] = {
+				_: args[key],
+			};
+		} */
+		const argsObj = {};
+		Object.entries(args).map(([key, value]) => {
+			argsObj[`rns:${key}`] = { _: value };
+		});
+		const reqBody = {
+			[`rns:${methodName}`]: argsObj,
+		};
+		return reqBody;
+	}
 }
 
 module.exports = SoapXmlHelper;
