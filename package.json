@@ -1,10 +1,10 @@
 {
   "name": "@radekborandom/soap-client",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Basic soap messaging protocol for node.js",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "nyc ava"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -13,7 +13,8 @@
   "devDependencies": {
     "@ava/babel": "^1.0.1",
     "ava": "^3.15.0",
-    "axios-mock-adapter": "^1.19.0"
+    "axios-mock-adapter": "^1.19.0",
+    "nyc": "^15.1.0"
   },
   "repository": {
     "type": "git",

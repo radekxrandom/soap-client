@@ -1,25 +1,14 @@
 // pad and getDate written by @vpulim
 
-const padWithZero = n => {
-  return n < 10 ? "0" + n : n;
-};
+const padWithZero = n => (n < 10 ? `0${n}` : n);
 
-const formatDate = date => {
-  return (
-    date.getUTCFullYear() +
-    "-" +
-    padWithZero(date.getUTCMonth() + 1) +
-    "-" +
-    padWithZero(date.getUTCDate()) +
-    "T" +
-    padWithZero(date.getUTCHours()) +
-    ":" +
-    padWithZero(date.getUTCMinutes()) +
-    ":" +
-    padWithZero(date.getUTCSeconds()) +
-    "Z"
-  );
-};
+const formatDate = date => `${date.getUTCFullYear()}-${padWithZero(
+  date.getUTCMonth() + 1,
+)}-${padWithZero(date.getUTCDate())}T${padWithZero(
+  date.getUTCHours(),
+)}:${padWithZero(date.getUTCMinutes())}:${padWithZero(
+  date.getUTCSeconds(),
+)}Z`;
 
 class SoapXmlHelper {
   genUsernameToken(username, pwd) {
